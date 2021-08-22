@@ -1,14 +1,14 @@
 from kiwoom.kiwoom import *
 
 import sys
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import *       # UI 꾸미는 용도
 
 
-class Ui_class():
+class Ui_class:
     def __init__(self):
         print("Ui_class 입니다")
 
-        self.app = QApplication(sys.argv)
+        self.app = QApplication(sys.argv)   # app 초기화
 
         self.kiwoom = Kiwoom()
 
