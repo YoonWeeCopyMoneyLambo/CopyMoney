@@ -2,6 +2,7 @@ from PyQt5.QAxContainer import *
 from PyQt5.QtCore import *
 from config.errorCode import *
 
+
 class Kiwoom(QAxWidget):
     def __init__(self):
         super().__init__()
@@ -20,7 +21,7 @@ class Kiwoom(QAxWidget):
         self.event_slots()
         self.signal_login_commConnect()
         self.get_account_info()
-        self.detail_account_info() # 예수금 가져오는 것!
+        self.detail_account_info()  # 예수금 가져오는 것!
 
     def get_ocx_instance(self):
         self.setControl("KHOPENAPI.KHOpenAPICtrl.1")
@@ -42,7 +43,7 @@ class Kiwoom(QAxWidget):
     def get_account_info(self):
         account_list = self.dynamicCall("GetLogininfo(String)", "ACCNO")
         self.account_num = account_list.split(';')[0]
-        print("나의 보유 계좌번호 %s" % self.account_num) #8005704011
+        print("나의 보유 계좌번호 %s" % self.account_num)  # 8005704011
 
     def detail_account_info(self):
         print("예수금 요청하는 부분")
@@ -53,7 +54,7 @@ class Kiwoom(QAxWidget):
         self.dynamicCall("SetInputValue(String, String)", "조회구문", "2")
         self.dynamicCall("CommRqData(String, String, int, String)", "예수금상세현황요청", "opw00001", "0", "2000")
 
-    def trdata_slot(self, sScrNo, sRQName, sTrCode, sRecordName, sPrevNext,):
+    def trdata_slot(self, sScrNo, sRQName, sTrCode, sRecordName, sPrevNext, ):
         '''
         tr요청을 받는 구역이다! 슬롯이다!
         :param sScrNo: 스크린번호
@@ -69,6 +70,7 @@ class Kiwoom(QAxWidget):
             print("예수금 %s" % type(deposit))
             print("예수금 형변환 %s" % int(deposit))
 
-            ok_deposit = deposit = self.dynamicCall("GetCommData(String, String, int, String)", sTrCode, sRQName, 0, "출금가능금액")
+            ok_deposit = deposit = self.dynamicCall("GetCommData(String, String, int, String)", sTrCode, sRQName, 0,
+                                                    "출금가능금액")
             print("출금가능금액 %s" % ok_deposit)
             print("출금가능금액 형변환 %s" % int(ok_deposit))
