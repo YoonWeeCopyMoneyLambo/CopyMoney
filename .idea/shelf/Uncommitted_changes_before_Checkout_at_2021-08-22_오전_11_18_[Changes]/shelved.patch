@@ -1,0 +1,222 @@
+Index: config/errorCode.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def errors(err_code):\r\n\r\n    err_dic = {0:('OP_ERR_NONE', '정상처리'),\r\n               -10:('OP_ERR_FAIL', '실패'),\r\n               -100:('OP_ERR_LOGIN', '사용자정보교환실패'),\r\n               -101:('OP_ERR_CONNECT', '서버접속실패'),\r\n               -102:('OP_ERR_VERSION', '버전처리실패'),\r\n               -103:('OP_ERR_FIREWALL', '개인방화벽실패'),\r\n               -104:('OP_ERR_MEMORY', '메모리보호실패'),\r\n               -105:('OP_ERR_INPUT', '함수입력값오류'),\r\n               -106:('OP_ERR_SOCKET_CLOSED', '통신연결종료'),\r\n               -200:('OP_ERR_SISE_OVERFLOW', '시세조회과부하'),\r\n               -201:('OP_ERR_RQ_STRUCT_FAIL', '전문작성초기화실패'),\r\n               -202:('OP_ERR_RQ_STRING_FAIL', '전문작성입력값오류'),\r\n               -203:('OP_ERR_NO_DATA', '데이터없음'),\r\n               -204:('OP_ERR_OVER_MAX_DATA', '조회가능한종목수초과'),\r\n               -205:('OP_ERR_DATA_RCV_FAIL', '데이터수신실패'),\r\n               -206:('OP_ERR_OVER_MAX_FID', '조회가능한FID수초과'),\r\n               -207:('OP_ERR_REAL_CANCEL', '실시간해제오류'),\r\n               -300:('OP_ERR_ORD_WRONG_INPUT', '입력값오류'),\r\n               -301:('OP_ERR_ORD_WRONG_ACCTNO', '계좌비밀번호없음'),\r\n               -302:('OP_ERR_OTHER_ACC_USE', '타인계좌사용오류'),\r\n               -303:('OP_ERR_MIS_2BILL_EXC', '주문가격이20억원을초과'),\r\n               -304:('OP_ERR_MIS_5BILL_EXC', '주문가격이50억원을초과'),\r\n               -305:('OP_ERR_MIS_1PER_EXC', '주문수량이총발행주수의1 % 초과오류'),\r\n               -306:('OP_ERR_MIS_3PER_EXC', '주문수량은총발행주수의3 % 초과오류'),\r\n               -307:('OP_ERR_SEND_FAIL', '주문전송실패'),\r\n               -308:('OP_ERR_ORD_OVERFLOW', '주문전송과부하'),\r\n               -309:('OP_ERR_MIS_300CNT_EXC', '주문수량300계약초과'),\r\n               -310:('OP_ERR_MIS_500CNT_EXC', '주문수량500계약초과'),\r\n               -340:('OP_ERR_ORD_WRONG_ACCTINFO', '계좌정보없음'),\r\n               -500:('OP_ERR_ORD_SYMCODE_EMPTY', '종목코드없음')\r\n               }\r\n\r\n    result = err_dic[err_code]\r\n\r\n    return result
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/config/errorCode.py b/config/errorCode.py
+--- a/config/errorCode.py	(revision 293e714b6e2aeae364af1d345e60a773105b2ddb)
++++ b/config/errorCode.py	(date 1629597991795)
+@@ -1,37 +1,36 @@
+ def errors(err_code):
+-
+-    err_dic = {0:('OP_ERR_NONE', '정상처리'),
+-               -10:('OP_ERR_FAIL', '실패'),
+-               -100:('OP_ERR_LOGIN', '사용자정보교환실패'),
+-               -101:('OP_ERR_CONNECT', '서버접속실패'),
+-               -102:('OP_ERR_VERSION', '버전처리실패'),
+-               -103:('OP_ERR_FIREWALL', '개인방화벽실패'),
+-               -104:('OP_ERR_MEMORY', '메모리보호실패'),
+-               -105:('OP_ERR_INPUT', '함수입력값오류'),
+-               -106:('OP_ERR_SOCKET_CLOSED', '통신연결종료'),
+-               -200:('OP_ERR_SISE_OVERFLOW', '시세조회과부하'),
+-               -201:('OP_ERR_RQ_STRUCT_FAIL', '전문작성초기화실패'),
+-               -202:('OP_ERR_RQ_STRING_FAIL', '전문작성입력값오류'),
+-               -203:('OP_ERR_NO_DATA', '데이터없음'),
+-               -204:('OP_ERR_OVER_MAX_DATA', '조회가능한종목수초과'),
+-               -205:('OP_ERR_DATA_RCV_FAIL', '데이터수신실패'),
+-               -206:('OP_ERR_OVER_MAX_FID', '조회가능한FID수초과'),
+-               -207:('OP_ERR_REAL_CANCEL', '실시간해제오류'),
+-               -300:('OP_ERR_ORD_WRONG_INPUT', '입력값오류'),
+-               -301:('OP_ERR_ORD_WRONG_ACCTNO', '계좌비밀번호없음'),
+-               -302:('OP_ERR_OTHER_ACC_USE', '타인계좌사용오류'),
+-               -303:('OP_ERR_MIS_2BILL_EXC', '주문가격이20억원을초과'),
+-               -304:('OP_ERR_MIS_5BILL_EXC', '주문가격이50억원을초과'),
+-               -305:('OP_ERR_MIS_1PER_EXC', '주문수량이총발행주수의1 % 초과오류'),
+-               -306:('OP_ERR_MIS_3PER_EXC', '주문수량은총발행주수의3 % 초과오류'),
+-               -307:('OP_ERR_SEND_FAIL', '주문전송실패'),
+-               -308:('OP_ERR_ORD_OVERFLOW', '주문전송과부하'),
+-               -309:('OP_ERR_MIS_300CNT_EXC', '주문수량300계약초과'),
+-               -310:('OP_ERR_MIS_500CNT_EXC', '주문수량500계약초과'),
+-               -340:('OP_ERR_ORD_WRONG_ACCTINFO', '계좌정보없음'),
+-               -500:('OP_ERR_ORD_SYMCODE_EMPTY', '종목코드없음')
++    err_dic = {0: ('OP_ERR_NONE', '정상처리'),
++               -10: ('OP_ERR_FAIL', '실패'),
++               -100: ('OP_ERR_LOGIN', '사용자정보교환실패'),
++               -101: ('OP_ERR_CONNECT', '서버접속실패'),
++               -102: ('OP_ERR_VERSION', '버전처리실패'),
++               -103: ('OP_ERR_FIREWALL', '개인방화벽실패'),
++               -104: ('OP_ERR_MEMORY', '메모리보호실패'),
++               -105: ('OP_ERR_INPUT', '함수입력값오류'),
++               -106: ('OP_ERR_SOCKET_CLOSED', '통신연결종료'),
++               -200: ('OP_ERR_SISE_OVERFLOW', '시세조회과부하'),
++               -201: ('OP_ERR_RQ_STRUCT_FAIL', '전문작성초기화실패'),
++               -202: ('OP_ERR_RQ_STRING_FAIL', '전문작성입력값오류'),
++               -203: ('OP_ERR_NO_DATA', '데이터없음'),
++               -204: ('OP_ERR_OVER_MAX_DATA', '조회가능한종목수초과'),
++               -205: ('OP_ERR_DATA_RCV_FAIL', '데이터수신실패'),
++               -206: ('OP_ERR_OVER_MAX_FID', '조회가능한FID수초과'),
++               -207: ('OP_ERR_REAL_CANCEL', '실시간해제오류'),
++               -300: ('OP_ERR_ORD_WRONG_INPUT', '입력값오류'),
++               -301: ('OP_ERR_ORD_WRONG_ACCTNO', '계좌비밀번호없음'),
++               -302: ('OP_ERR_OTHER_ACC_USE', '타인계좌사용오류'),
++               -303: ('OP_ERR_MIS_2BILL_EXC', '주문가격이20억원을초과'),
++               -304: ('OP_ERR_MIS_5BILL_EXC', '주문가격이50억원을초과'),
++               -305: ('OP_ERR_MIS_1PER_EXC', '주문수량이총발행주수의1 % 초과오류'),
++               -306: ('OP_ERR_MIS_3PER_EXC', '주문수량은총발행주수의3 % 초과오류'),
++               -307: ('OP_ERR_SEND_FAIL', '주문전송실패'),
++               -308: ('OP_ERR_ORD_OVERFLOW', '주문전송과부하'),
++               -309: ('OP_ERR_MIS_300CNT_EXC', '주문수량300계약초과'),
++               -310: ('OP_ERR_MIS_500CNT_EXC', '주문수량500계약초과'),
++               -340: ('OP_ERR_ORD_WRONG_ACCTINFO', '계좌정보없음'),
++               -500: ('OP_ERR_ORD_SYMCODE_EMPTY', '종목코드없음')
+                }
+ 
+     result = err_dic[err_code]
+ 
+-    return result
+\ No newline at end of file
++    return result
+Index: __init__.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from ui.ui import *\r\n\r\nclass Main():\r\n    def __init__(self):\r\n        print('실행할 메인 클래스')\r\n\r\n        Ui_class()\r\n\r\n\r\nif __name__==\"__main__\":\r\n    Main()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/__init__.py b/__init__.py
+--- a/__init__.py	(revision 293e714b6e2aeae364af1d345e60a773105b2ddb)
++++ b/__init__.py	(date 1629597991927)
+@@ -1,5 +1,6 @@
+ from ui.ui import *
+ 
++
+ class Main():
+     def __init__(self):
+         print('실행할 메인 클래스')
+@@ -7,5 +8,5 @@
+         Ui_class()
+ 
+ 
+-if __name__=="__main__":
++if __name__ == "__main__":
+     Main()
+Index: kiwoom/kiwoom.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from PyQt5.QAxContainer import *\r\nfrom PyQt5.QtCore import *\r\nfrom config.errorCode import *\r\n\r\nclass Kiwoom(QAxWidget):\r\n    def __init__(self):\r\n        super().__init__()\r\n\r\n        print(\"Kiwoom 클래스 입니다\")\r\n\r\n        ###### eventloop 모음\r\n        self.login_event_loop = None\r\n        #############################\r\n\r\n        ###### 변수 모음\r\n        self.account_num = None\r\n        #############################\r\n\r\n        self.get_ocx_instance()\r\n        self.event_slots()\r\n        self.signal_login_commConnect()\r\n        self.get_account_info()\r\n        self.detail_account_info() # 예수금 가져오는 것!\r\n\r\n    def get_ocx_instance(self):\r\n        self.setControl(\"KHOPENAPI.KHOpenAPICtrl.1\")\r\n\r\n    def event_slots(self):\r\n        self.OnEventConnect.connect(self.login_slot)\r\n        self.OnReceiveTrData.connect(self.trdata_slot)\r\n\r\n    def signal_login_commConnect(self):\r\n        self.dynamicCall(\"CommConnect()\")\r\n\r\n        self.login_event_loop = QEventLoop()\r\n        self.login_event_loop.exec_()\r\n\r\n    def login_slot(self, errCode):\r\n        print(errors(errCode))\r\n        self.login_event_loop.exit()\r\n\r\n    def get_account_info(self):\r\n        account_list = self.dynamicCall(\"GetLogininfo(String)\", \"ACCNO\")\r\n        self.account_num = account_list.split(';')[0]\r\n        print(\"나의 보유 계좌번호 %s\" % self.account_num) #8005704011\r\n\r\n    def detail_account_info(self):\r\n        print(\"예수금 요청하는 부분\")\r\n\r\n        self.dynamicCall(\"SetInputValue(String, String)\", \"계좌번호\", self.account_num)\r\n        self.dynamicCall(\"SetInputValue(String, String)\", \"비밀번호\", \"0000\")\r\n        self.dynamicCall(\"SetInputValue(String, String)\", \"비밀번호입력매체구문\", \"00\")\r\n        self.dynamicCall(\"SetInputValue(String, String)\", \"조회구문\", \"2\")\r\n        self.dynamicCall(\"CommRqData(String, String, int, String)\", \"예수금상세현황요청\", \"opw00001\", \"0\", \"2000\")\r\n\r\n    def trdata_slot(self, sScrNo, sRQName, sTrCode, sRecordName, sPrevNext,):\r\n        '''\r\n        tr요청을 받는 구역이다! 슬롯이다!\r\n        :param sScrNo: 스크린번호\r\n        :param sRQName: 내가 요청했을 때 지은 이름\r\n        :param sTrCode: 요청id, tr코드\r\n        :param sRecordName: 사용 안함\r\n        :param sPrevNext: 다음 페이지가 있는지\r\n        :return: \r\n        '''\r\n\r\n        if sRQName == \"예수금상세현황요청\":\r\n            deposit = self.dynamicCall(\"GetCommData(String, String, int, String)\", sTrCode, sRQName, 0, \"예수금\")\r\n            print(\"예수금 %s\" % type(deposit))\r\n            print(\"예수금 형변환 %s\" % int(deposit))\r\n\r\n            ok_deposit = deposit = self.dynamicCall(\"GetCommData(String, String, int, String)\", sTrCode, sRQName, 0, \"출금가능금액\")\r\n            print(\"출금가능금액 %s\" % ok_deposit)\r\n            print(\"출금가능금액 형변환 %s\" % int(ok_deposit))
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/kiwoom/kiwoom.py b/kiwoom/kiwoom.py
+--- a/kiwoom/kiwoom.py	(revision 293e714b6e2aeae364af1d345e60a773105b2ddb)
++++ b/kiwoom/kiwoom.py	(date 1629598231458)
+@@ -2,6 +2,7 @@
+ from PyQt5.QtCore import *
+ from config.errorCode import *
+ 
++
+ class Kiwoom(QAxWidget):
+     def __init__(self):
+         super().__init__()
+@@ -20,7 +21,7 @@
+         self.event_slots()
+         self.signal_login_commConnect()
+         self.get_account_info()
+-        self.detail_account_info() # 예수금 가져오는 것!
++        self.detail_account_info()  # 예수금 가져오는 것!
+ 
+     def get_ocx_instance(self):
+         self.setControl("KHOPENAPI.KHOpenAPICtrl.1")
+@@ -42,7 +43,7 @@
+     def get_account_info(self):
+         account_list = self.dynamicCall("GetLogininfo(String)", "ACCNO")
+         self.account_num = account_list.split(';')[0]
+-        print("나의 보유 계좌번호 %s" % self.account_num) #8005704011
++        print("나의 보유 계좌번호 %s" % self.account_num)  # 8005704011
+ 
+     def detail_account_info(self):
+         print("예수금 요청하는 부분")
+@@ -53,7 +54,7 @@
+         self.dynamicCall("SetInputValue(String, String)", "조회구문", "2")
+         self.dynamicCall("CommRqData(String, String, int, String)", "예수금상세현황요청", "opw00001", "0", "2000")
+ 
+-    def trdata_slot(self, sScrNo, sRQName, sTrCode, sRecordName, sPrevNext,):
++    def trdata_slot(self, sScrNo, sRQName, sTrCode, sRecordName, sPrevNext, ):
+         '''
+         tr요청을 받는 구역이다! 슬롯이다!
+         :param sScrNo: 스크린번호
+@@ -69,6 +70,7 @@
+             print("예수금 %s" % type(deposit))
+             print("예수금 형변환 %s" % int(deposit))
+ 
+-            ok_deposit = deposit = self.dynamicCall("GetCommData(String, String, int, String)", sTrCode, sRQName, 0, "출금가능금액")
++            ok_deposit = deposit = self.dynamicCall("GetCommData(String, String, int, String)", sTrCode, sRQName, 0,
++                                                    "출금가능금액")
+             print("출금가능금액 %s" % ok_deposit)
+-            print("출금가능금액 형변환 %s" % int(ok_deposit))
+\ No newline at end of file
++            print("출금가능금액 형변환 %s" % int(ok_deposit))
+Index: test.py
+===================================================================
+diff --git a/test.py b/test.py
+deleted file mode 100644
+--- a/test.py	(revision 293e714b6e2aeae364af1d345e60a773105b2ddb)
++++ /dev/null	(revision 293e714b6e2aeae364af1d345e60a773105b2ddb)
+@@ -1,4 +0,0 @@
+-test!!!!!!!!!!!__wee___weettttttt
+-
+-
+-wee branch 진행
+\ No newline at end of file
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null	(date 1629597825491)
++++ b/README.md	(date 1629597825491)
+@@ -0,0 +1,1 @@
++``Copy Money Project``
+\ No newline at end of file
+Index: .idea/CopyMoney.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/CopyMoney.iml b/.idea/CopyMoney.iml
+--- a/.idea/CopyMoney.iml	(revision 293e714b6e2aeae364af1d345e60a773105b2ddb)
++++ b/.idea/CopyMoney.iml	(date 1629597722297)
+@@ -2,7 +2,7 @@
+ <module type="PYTHON_MODULE" version="4">
+   <component name="NewModuleRootManager">
+     <content url="file://$MODULE_DIR$" />
+-    <orderEntry type="inheritedJdk" />
++    <orderEntry type="jdk" jdkName="Python 3.7 (py37_32)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"JavaScriptSettings\">\r\n    <option name=\"languageLevel\" value=\"ES6\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.8 (untitled12)\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 293e714b6e2aeae364af1d345e60a773105b2ddb)
++++ b/.idea/misc.xml	(date 1629597722448)
+@@ -3,5 +3,5 @@
+   <component name="JavaScriptSettings">
+     <option name="languageLevel" value="ES6" />
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (untitled12)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.7 (py37_32)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
