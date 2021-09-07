@@ -513,37 +513,37 @@ class Kiwoom(QAxWidget):
         elif sRealType == "주식체결":
             # print(sCode)
 
-            a = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['체결시간']))
-            b = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['현재가']))
+            a = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['체결시간'])
+            b = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['현재가'])
             b = abs(int(b))
 
-            c = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['전일대비']))
+            c = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['전일대비'])
             c = abs(int(c))
 
-            d = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['등락율']))
+            d = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['등락율'])
             d = float(d)
 
             e = self.dynamicCall("GetCommRealData(QString, int)", sCode,
-                                 self.realType.REALTYPE([sRealType]['(최우선)매도호가']))
+                                 self.realType.REALTYPE[sRealType]['(최우선)매도호가'])
             e = abs(int(e))
 
             f = self.dynamicCall("GetCommRealData(QString, int)", sCode,
-                                 self.realType.REALTYPE([sRealType]['(최우선)매수호가']))
+                                 self.realType.REALTYPE[sRealType]['(최우선)매수호가'])
             f = abs(int(f))
 
-            g = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['거래량']))
+            g = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['거래량'])
             g = abs(int(g))
 
-            h = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['누적거래량']))
+            h = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['누적거래량'])
             h = abs(int(h))
 
-            i = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['고가']))
+            i = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['고가'])
             i = abs(int(i))
 
-            j = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['시가']))
+            j = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['시가'])
             j = abs(int(j))
 
-            k = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE([sRealType]['저가']))
+            k = self.dynamicCall("GetCommRealData(QString, int)", sCode, self.realType.REALTYPE[sRealType]['저가'])
             k = abs(int(k))
 
             if sCode not in self.portfolio_stock_dict:
@@ -588,7 +588,7 @@ class Kiwoom(QAxWidget):
             elif sCode in self.jango_dict.keys():
                 # print("%s %s" % ("신규매도를 한다2", sCode))
                 jd = self.jango_dict[sCode]
-                meme_rate = (b - jd['매입단가']) / jd['매입단가'] * 100
+                meme_rate = (b - jd['매입단가']) / jd['매입단가'] * 100     # b: 현재가
 
                 if jd['주문가능수량'] > 0 and (meme_rate > 5 or meme_rate < -5):
                     order_success = self.dynamicCall(
@@ -604,11 +604,11 @@ class Kiwoom(QAxWidget):
                         print("매도주문 전달 실패")
 
             # 등락율이 2.0% 이상이고 오늘 산 잔고에 없을경우
-            elif d > 2.0 and sCode not in self.jango_dict:
+            elif d > 2.0 and sCode not in self.jango_dict:  # d: 등락률
                 # print("%s %s" % ("신규매수를 한다", sCode))
                 # print("매수조건 통과 %s " % sCode)
 
-                result = (self.use_money * 0.1) / e
+                result = (self.use_money * 0.1) / e     # e: (최우선)매도호가  result: 가진돈 10퍼로 살 수 있는 주식 수
                 quantity = int(result)
 
                 order_success = self.dynamicCall(
