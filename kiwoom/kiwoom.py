@@ -56,7 +56,7 @@ class Kiwoom(QAxWidget):
         self.detail_account_info()  # 예수금 가져오는 것!
         self.detail_account_mystock()  # 계좌평가 잔고 내역 요청
 
-        # self.calculator_fnc()  # 종목 분석용, 임시용으로 실행
+        self.calculator_fnc()  # 종목 분석용, 임시용으로 실행
 
         self.read_code()  # 저장된 종목들 불러온다
         self.screen_number_setting()  # 스크린 번호를 할당
@@ -356,7 +356,7 @@ class Kiwoom(QAxWidget):
                             elif int(self.calcul_data[idx][7]) > moving_average_price_prev and idx > 20:
                                 print("120일 이평선 위에 있는 일봉 확인됨")
                                 price_top_moving = True
-                                premainv_price = int(self.calcul_data[idx][7])
+                                prev_price = int(self.calcul_data[idx][7])
                                 break
 
                             idx += 1
